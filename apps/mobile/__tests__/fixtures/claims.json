@@ -1,0 +1,86 @@
+{
+  "source": "viem 2.57.1 hashTypedData + @noble/curves 1.9.1; reconcile with WP-01 cast hashClaim at level 2",
+  "domain": {
+    "name": "Stamper",
+    "version": "1",
+    "chainId": 31337,
+    "verifyingContract": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+  },
+  "claims": [
+    {
+      "name": "secp256k1-online",
+      "keyType": 0,
+      "privateKey": "0x0101010101010101010101010101010101010101010101010101010101010102",
+      "keyInfo": {
+        "keyType": 0,
+        "addr": "0x87F6433eae757DF1f471bF9Ce03fe32d751Ff9a0"
+      },
+      "claim": {
+        "contentHash": "0x1ef0ae7bbe4ce6c99ab744fe8c27582178d69c660538ef6a4b201cf5a944e17a",
+        "pieceCid": "0x01559120227e02bf751399ee402931c262ced76ec65054b902b0c1b5762c83976ac924da541433",
+        "contentLength": "1",
+        "mediaKind": 1,
+        "capturedAt": "1790000000001",
+        "recordHash": "0xb7462d6ced2c15add3dbe47755277fa9618aceb17c68f507128896d622d4c5ee",
+        "keyId": "0x00000000000000000000000087f6433eae757df1f471bf9ce03fe32d751ff9a0",
+        "nonce": "1",
+        "flags": 0,
+        "deadline": "1790003600"
+      },
+      "digest": "0x4f0064397e8ab371746bcbe0977dbfefbfc23fe58f7e4f3f14d8da0c743c019f",
+      "sig": "0xabd6823e88aae41d5a9349b7e79ac4efe6952f553920980c26809d254659af294e390b52ba96acdc5ea80ac9bd9b8278ea6b519eb02ddae591846073e3aa2ba01c",
+      "authData": "0x"
+    },
+    {
+      "name": "p256-raw",
+      "keyType": 1,
+      "privateKey": "0x0303030303030303030303030303030303030303030303030303030303030303",
+      "keyInfo": {
+        "keyType": 1,
+        "x": "0x591ab771ebbcfd6d9cb9094d106528add1a69d44c2c1f627f089ec58b9c61adf",
+        "y": "0x9f4e6abf0d045c0c693a3c68ad7c97ca72be64def4a26fecd263dd98a92780f0"
+      },
+      "claim": {
+        "contentHash": "0x4f31491389021162043481e98d0a4e11f72dbf26cbc1962db271200b65ba3e7d",
+        "pieceCid": "0x01559120227e02bf751399ee402931c262ced76ec65054b902b0c1b5762c83976ac924da541433",
+        "contentLength": "1",
+        "mediaKind": 1,
+        "capturedAt": "1790000000007",
+        "recordHash": "0x1268d916bfefa28f636f4ad7967697fbfc8adc1f700c7d183ed310e9206a01b0",
+        "keyId": "0xd02c9e7062d4d70c142007e115a13cf40ebe70a48eb7134ddae48d1d8a9deccf",
+        "nonce": "7",
+        "flags": 0,
+        "deadline": "1790003600"
+      },
+      "digest": "0x64d62e26b2ffde4537dbd694b45bc23b5b8e668d7717186fe2d0437c228036b9",
+      "sig": "0xf19b1c8997429a7e2f436dc023ed47cba8be0cf6977642e689885e7a967790e3357efe88b72c6039df0b6a37fd39555341b56a0895479dddb2819a0f27c1b66d",
+      "authData": "0x"
+    },
+    {
+      "name": "p256-appattest-offline",
+      "keyType": 2,
+      "privateKey": "0x0404040404040404040404040404040404040404040404040404040404040404",
+      "keyInfo": {
+        "keyType": 2,
+        "x": "0x73103ec30b3ccf57daae08e93534aef144a35940cf6bbba12a0cf7cbd5d65a64",
+        "y": "0xd82c8c99e9d3c45f9245ba9b27982c9aea8ec1db94b19c44795942c0eb22aa32",
+        "rpIdHash": "0x28a60e28e6c0a1d66b167a710b25aa649f4de0a0af0bbdb9b0a740a158f1cb1b"
+      },
+      "claim": {
+        "contentHash": "0x0cc6db7eacbd8f792829725858a2cb8690d51a827ed31517f06fd56590259b49",
+        "pieceCid": "0x01559120227e02bf751399ee402931c262ced76ec65054b902b0c1b5762c83976ac924da541433",
+        "contentLength": "1",
+        "mediaKind": 1,
+        "capturedAt": "1790000000008",
+        "recordHash": "0x390b619fa8fe9c6ed900e214a984b05d371ff57f494c31936c2ce9191010398e",
+        "keyId": "0xe6f39369127579d20d5eacd45990055fcb9d88698929399eb01824fd178d2c97",
+        "nonce": "8",
+        "flags": 2,
+        "deadline": "1790003600"
+      },
+      "digest": "0x215ce9cfb531bed67acad40fa7f414a27da2f1b3db5fec22cd7c69e5bc0ed846",
+      "sig": "0x50189f7c188f942993b1b425d135db6422bb65992f1b3703126a4cb69e1d59743cade6a80b3df42dfaecd863f5080221ef347c68f2b16ded1cb358bf21ea3a86",
+      "authData": "0x28a60e28e6c0a1d66b167a710b25aa649f4de0a0af0bbdb9b0a740a158f1cb1b4000000008"
+    }
+  ]
+}

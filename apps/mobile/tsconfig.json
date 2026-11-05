@@ -1,0 +1,26 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "customConditions": ["react-native"],
+    "jsx": "react-jsx",
+    "lib": ["ES2023", "DOM"],
+    "types": ["jest", "node"],
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "allowJs": false,
+    "paths": { "@/*": ["./*"] }
+  },
+  "include": [
+    "app/**/*",
+    "lib/**/*",
+    "components/**/*",
+    "__tests__/**/*",
+    "app.config.ts",
+    "expo-env.d.ts"
+  ],
+  "exclude": ["node_modules", "dist", ".expo", "scripts"]
+}

@@ -1,0 +1,10 @@
+.next/
+next-env.d.ts
+public/zxing_reader.wasm
+test-results/
+playwright-report/
+*.tsbuildinfo
+
+# written by `next dev` (Next 16 agent files)
+AGENTS.md
+CLAUDE.md

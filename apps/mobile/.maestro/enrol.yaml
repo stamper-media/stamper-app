@@ -1,0 +1,12 @@
+# Development build, EXPO_PUBLIC_ATTEST_MODE=stub, api from the WP-12 local stack.
+appId: media.stamper.app
+---
+- launchApp:
+    clearState: true
+- tapOn: "Set up"
+- assertVisible: "Set up this device"
+- tapOn:
+    id: "enrol-start"
+- extendedWaitUntil:
+    visible: "This device is set up with platform attestation."
+    timeout: 30000

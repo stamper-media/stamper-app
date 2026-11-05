@@ -1,0 +1,40 @@
+{
+  "name": "@stamper/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Stamper app on the web: stamp a photo or video from the browser (Next.js App Router)",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --config app/capture/vitest.config.ts",
+    "test:live": "playwright test"
+  },
+  "dependencies": {
+    "@filoz/synapse-core": "catalog:",
+    "@noble/curves": "catalog:",
+    "@noble/hashes": "catalog:",
+    "@stamper/contracts-abi": "^0.1.0",
+    "@stamper/core": "^0.1.0",
+    "@stamper/minimise": "^0.1.0",
+    "hash-wasm": "catalog:",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "viem": "catalog:"
+  },
+  "devDependencies": {
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "msw": "catalog:",
+    "qrcode": "catalog:",
+    "@types/qrcode": "^1.5.5",
+    "tsx": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}

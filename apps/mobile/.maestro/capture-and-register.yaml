@@ -1,0 +1,26 @@
+# Integration flow (plan WP-10): enrol → photo → "do not share yet" with the greyed prediction →
+# definitive code → Share-ready → share sheet with the marked JPEG.
+appId: media.stamper.app
+---
+- runFlow: enrol.yaml
+- tapOn: "Camera"
+- runFlow:
+    when:
+      visible: "Allow camera"
+    commands:
+      - tapOn: "Allow camera"
+      - tapOn: "While using the app"
+- tapOn: "Photo"
+- tapOn:
+    point: "50%,90%"
+- extendedWaitUntil:
+    visible: "Registering on Filecoin… do not share yet"
+    timeout: 60000
+- assertVisible: "Predicted code, not final yet"
+- extendedWaitUntil:
+    visible: "Share-ready"
+    timeout: 240000
+- assertVisible:
+    text: "Spoken form.*"
+- tapOn: "Share"
+- assertVisible: ".*(Share|Nearby|Copy).*"

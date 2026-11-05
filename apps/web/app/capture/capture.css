@@ -1,0 +1,349 @@
+/* Capture screen (stamper-app): the card beside the hero, in the Explorer's design language. */
+
+.cap-card {
+  gap: 16px;
+}
+
+/* Viewfinder: dark frame with the logo's magenta corner brackets */
+.cap-viewfinder {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  background: radial-gradient(120% 90% at 50% 40%, #241c30 0%, #120e1a 70%), #120e1a;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  color: #b0aabb;
+}
+.cap-viewfinder video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cap-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 0 solid var(--magenta);
+  z-index: 1;
+  pointer-events: none;
+}
+.cap-corner.tl {
+  top: 14px;
+  left: 14px;
+  border-top-width: 3px;
+  border-left-width: 3px;
+}
+.cap-corner.tr {
+  top: 14px;
+  right: 14px;
+  border-top-width: 3px;
+  border-right-width: 3px;
+}
+.cap-corner.bl {
+  bottom: 14px;
+  left: 14px;
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+}
+.cap-corner.br {
+  bottom: 14px;
+  right: 14px;
+  border-bottom-width: 3px;
+  border-right-width: 3px;
+}
+.cap-viewfinder.live .cap-corner {
+  border-color: #ffffff;
+}
+.cap-idle {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font: 500 11px / 16px var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.cap-diamond {
+  width: 18px;
+  height: 18px;
+  background: var(--magenta);
+  transform: rotate(45deg);
+  box-shadow: 0 0 0 8px rgba(242, 39, 245, 0.12);
+}
+
+/* The five stages, shown inside the viewfinder while a stamp is made */
+.cap-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font: 500 12px / 18px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6e6679;
+}
+.cap-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cap-step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+.cap-steps li.done {
+  color: #4fd6a0;
+}
+.cap-steps li.done .cap-step-dot {
+  background: currentColor;
+}
+.cap-steps li.active {
+  color: #ffffff;
+}
+.cap-steps li.active .cap-step-dot {
+  border-color: var(--magenta);
+  background: var(--magenta);
+  animation: cap-pulse 1.2s ease-in-out infinite;
+}
+@keyframes cap-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(242, 39, 245, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(242, 39, 245, 0);
+  }
+}
+
+/* Actions under the viewfinder */
+.cap-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.cap-actions .btn.primary {
+  flex: 1 1 auto;
+}
+.cap-shutter-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--on-magenta);
+  box-shadow:
+    0 0 0 3px var(--magenta),
+    0 0 0 4.5px var(--on-magenta);
+}
+.cap-facing {
+  display: inline-flex;
+  margin: 0;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper-sunken);
+}
+.cap-facing button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: var(--radius-xs);
+  background: transparent;
+  color: var(--ink-muted);
+  font: 500 13px / 1 var(--font-sans);
+  cursor: pointer;
+}
+.cap-facing button[aria-pressed="true"] {
+  background: var(--paper-raised);
+  color: var(--ink);
+  box-shadow: var(--shadow-raised);
+}
+
+.cap-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--ink);
+}
+.cap-spinner {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--magenta-tint);
+  border-top-color: var(--magenta);
+  animation: cap-spin 0.8s linear infinite;
+}
+@keyframes cap-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.cap-error {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--critical-tint);
+  color: var(--critical);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+/* File drop */
+.cap-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 22px 16px;
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  text-align: center;
+  cursor: pointer;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease;
+}
+.cap-drop:hover,
+.cap-drop.over {
+  border-color: var(--magenta);
+  background: var(--magenta-tint);
+}
+.cap-drop.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.cap-drop-title {
+  font: 600 16px / 22px var(--font-sans);
+  color: var(--ink);
+}
+.cap-drop .small {
+  max-width: 34ch;
+  font-size: 13px;
+  line-height: 19px;
+}
+.cap-drop .btn {
+  margin-top: 6px;
+}
+
+/* Result */
+.cap-done {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cap-done-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cap-done-head h2 {
+  margin: 0;
+}
+.cap-done-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--original-tint);
+  color: var(--original);
+  font: 700 18px / 1 var(--font-mono);
+}
+.cap-code {
+  display: block;
+  padding: 18px 16px;
+  border-radius: var(--radius-md);
+  background: var(--paper-sunken);
+  border: 1px solid var(--line);
+  font: 600 30px / 1.1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: var(--ink);
+}
+
+/* "About this browser's key" */
+.cap-key {
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--ink-muted);
+}
+.cap-key summary {
+  cursor: pointer;
+  font: 500 11px / 16px var(--font-mono);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cap-key p {
+  margin: 8px 0 0;
+}
+
+/* Left column: what this stamp says */
+.cap-tier {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--magenta);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--paper-raised);
+  font-size: 15px;
+  line-height: 22px;
+}
+.cap-tier strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+.cap-tier p {
+  margin: 0;
+}
+
+/* Hero grid: copy and "what this stamp says" on the left, the card on the right; on narrow screens the
+   card comes right after the copy, before the explanation. */
+.cap-hero {
+  grid-template-areas:
+    "copy card"
+    "tier card";
+  grid-template-rows: auto 1fr;
+  row-gap: 28px;
+}
+.cap-hero > .hero-copy {
+  grid-area: copy;
+}
+.cap-hero > .check-card {
+  grid-area: card;
+}
+.cap-hero > .cap-tier {
+  grid-area: tier;
+  align-self: start;
+}
+.cap-hero h1 em {
+  display: block;
+}
+@media (max-width: 900px) {
+  .cap-hero {
+    grid-template-areas:
+      "copy"
+      "card"
+      "tier";
+    grid-template-rows: auto;
+  }
+}
+@media (max-width: 520px) {
+  .cap-facing {
+    width: 100%;
+  }
+  .cap-facing button {
+    flex: 1;
+  }
+}

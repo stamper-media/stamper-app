@@ -1,0 +1,26 @@
+{
+  "name": "stamper-app",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Stamper app: stamp photos and videos from the browser or the phone (iOS, Android), and soon profiles and galleries.",
+  "type": "module",
+  "license": "MIT OR Apache-2.0",
+  "packageManager": "pnpm@10.32.0",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @stamper/app dev",
+    "build": "pnpm -r --if-present build",
+    "test": "pnpm -r --if-present test",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "sync-protocol": "scripts/sync-protocol.sh"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  }
+}
